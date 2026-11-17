@@ -10,7 +10,7 @@ The project focuses on a minimalist interface, customization, and a modular arch
 
 ## Screenshots
 
-| Widget Manager | Digital Clock |
+| Widget Manager - Digital Clock | Digital Clock Configuration |
 |:---:|:---:|
 | ![Widget Manager](Screenshots/widget-manager.png) | ![Digital Clock](Screenshots/clock-config.png) |
 
