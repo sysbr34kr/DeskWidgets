@@ -1,0 +1,49 @@
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Aplicação -->
+    <sys:String x:Key="UI_WidgetManager">Gerenciador</sys:String>
+    <sys:String x:Key="UI_Widgets">Widgets</sys:String>
+    <sys:String x:Key="UI_Preview">Prévia</sys:String>
+    <sys:String x:Key="UI_StartWithWindows">Iniciar com o Windows</sys:String>
+    <sys:String x:Key="UI_Language">Idioma</sys:String>
+
+    <!-- Relógio Digital -->
+    <sys:String x:Key="Clock_Name">Relógio Digital</sys:String>
+    <sys:String x:Key="Clock_Description">Exiba a hora e a data na área de trabalho.</sys:String>
+    <sys:String x:Key="Clock_Configuration">Configurações</sys:String>
+    <sys:String x:Key="Clock_Display">Exibição</sys:String>
+    <sys:String x:Key="Clock_FontSize">Tamanho da Fonte</sys:String>
+    <sys:String x:Key="Clock_ShowSeconds">Exibir Segundos</sys:String>
+    <sys:String x:Key="Clock_Use24Hour">Formato de 24 Horas</sys:String>
+    <sys:String x:Key="Clock_ShowDate">Exibir Data</sys:String>
+    <sys:String x:Key="Clock_DateFormat">Formato da Data</sys:String>
+
+    <!-- Opções de Formato da Data -->
+    <sys:String x:Key="Clock_DateFull">Completo</sys:String>
+    <sys:String x:Key="Clock_DateShort">Abreviado</sys:String>
+    <sys:String x:Key="Clock_DateWeekday">Dia da Semana</sys:String>
+    <sys:String x:Key="Clock_DateNumeric">Numérico</sys:String>
+
+    <!-- Comportamentos Compartilhados -->
+    <sys:String x:Key="Widget_Configuration">Configurações</sys:String>
+    <sys:String x:Key="Widget_Behavior">Comportamento do Widget</sys:String>
+    <sys:String x:Key="Widget_LockPosition">Fixar Posição</sys:String>
+    <sys:String x:Key="Widget_TransparentBackground">Fundo Transparente</sys:String>
+    <sys:String x:Key="Widget_AlwaysOnTop">Sempre Visível</sys:String>
+    <sys:String x:Key="Widget_ResetPosition">Redefinir Posição</sys:String>
+
+    <!-- Menus de Contexto -->
+    <sys:String x:Key="Menu_Settings">Configurações</sys:String>
+    <sys:String x:Key="Menu_Close">Fechar</sys:String>
+    <sys:String x:Key="Menu_OpenManager">Abrir Gerenciador de Widgets</sys:String>
+    <sys:String x:Key="Menu_Exit">Sair do DeskWidgets</sys:String>
+
+    <!-- Mensagens de Erro -->
+    <sys:String x:Key="Error_SaveSettings">Não foi possível salvar as configurações do aplicativo.&#10;&#10;{0}</sys:String>
+    <sys:String x:Key="Error_StartupSettings">Não foi possível atualizar a configuração de inicialização do Windows.&#10;&#10;{0}</sys:String>
+
+</ResourceDictionary>

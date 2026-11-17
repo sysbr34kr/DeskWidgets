@@ -1,0 +1,66 @@
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- General Text -->
+    <Style x:Key="BodyTextStyle"
+           TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <!-- Main Window Heading -->
+    <Style x:Key="PageTitleStyle"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource BodyTextStyle}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Widget and Section Headings -->
+    <Style x:Key="SectionTitleStyle"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource BodyTextStyle}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Setting Names -->
+    <Style x:Key="SettingLabelStyle"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource BodyTextStyle}">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Supporting Text -->
+    <Style x:Key="DescriptionStyle"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource BodyTextStyle}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource SecondaryTextBrush}"/>
+    </Style>
+
+    <!-- Widget Icon -->
+    <Style x:Key="WidgetIconStyle"
+           TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource AccentBrush}"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Icon for Buttons and Menus -->
+    <Style x:Key="SmallIconStyle"
+           TargetType="TextBlock"
+           BasedOn="{StaticResource WidgetIconStyle}">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+</ResourceDictionary>

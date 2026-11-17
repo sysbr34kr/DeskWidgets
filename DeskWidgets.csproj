@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <AssemblyName>DeskWidgets</AssemblyName>
+    <RootNamespace>DeskWidgets</RootNamespace>
+
+    <ApplicationIcon>Assets\DeskWidgets.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Keep WinForms available for the system tray,
+         without importing its types into every C# file. -->
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+    
+    <!-- WPF Icon -->
+    <Resource Include="Assets\Deskwidgets.ico" />
+
+    <!-- Clock Font -->
+    <Resource Include="Assets\Fonts\OrbitronMedium.ttf"/>
+    
+    <!-- Sys Logo -->
+    <Resource Include="Assets\SysLogo.png"/>
+  </ItemGroup>
+
+</Project>

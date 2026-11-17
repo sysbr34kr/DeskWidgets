@@ -1,0 +1,27 @@
+# Automatically normalize text files to LF in Git
+* text=auto
+
+# Keep source files consistent across platforms
+*.cs    text eol=lf
+*.xaml  text eol=lf
+*.xml   text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.props text eol=lf
+
+# Windows scripts
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+
+# Binary assets
+*.ico   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.ttf   binary
+*.woff  binary
+*.exe   binary
+*.dll   binary
+*.zip   binary

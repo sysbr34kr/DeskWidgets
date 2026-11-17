@@ -1,0 +1,98 @@
+<UserControl
+    x:Class="DeskWidgets.Controls.WidgetCard"
+    x:Name="Root"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    FontFamily="Segoe UI"
+    FontSize="14">
+
+    <Border
+        Background="{DynamicResource CardBackgroundBrush}"
+        BorderBrush="{DynamicResource BorderBrush}"
+        BorderThickness="1"
+        CornerRadius="10"
+        Padding="14">
+
+        <StackPanel>
+
+            <!-- Widget Header -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Widget Icon -->
+                <Border
+                    Grid.Column="0"
+                    Width="40"
+                    Height="40"
+                    CornerRadius="8"
+                    Background="{DynamicResource ElevatedSurfaceBrush}"
+                    VerticalAlignment="Center">
+
+                    <TextBlock
+                        Text="{Binding IconGlyph, ElementName=Root}"
+                        Style="{StaticResource WidgetIconStyle}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+
+                </Border>
+
+                <!-- Widget Information -->
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="12,0"
+                    VerticalAlignment="Center">
+
+                    <TextBlock
+                        Text="{Binding WidgetTitle, ElementName=Root}"
+                        Style="{StaticResource SectionTitleStyle}"/>
+
+                    <TextBlock
+                        Text="{Binding WidgetDescription, ElementName=Root}"
+                        Style="{StaticResource DescriptionStyle}"
+                        Margin="0,4,0,0"
+                        TextWrapping="Wrap"/>
+
+                </StackPanel>
+
+                <!-- Enable / Disable Widget -->
+                <CheckBox
+                    Grid.Column="2"
+                    Style="{StaticResource ToggleSwitchStyle}"
+                    IsChecked="{Binding IsWidgetEnabled,
+                        ElementName=Root,
+                        Mode=TwoWay}"
+                    AutomationProperties.Name="{Binding WidgetTitle,
+                        ElementName=Root}"
+                    VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <!-- Section Separator -->
+            <Border
+                Height="1"
+                Background="{DynamicResource BorderBrush}"
+                Margin="0,14,0,8"/>
+
+            <!-- Widget Configuration -->
+            <Expander
+                Header="{DynamicResource Widget_Configuration}"
+                Style="{StaticResource ModuleExpanderStyle}"
+                IsExpanded="{Binding IsSettingsExpanded,
+                    ElementName=Root,
+                    Mode=TwoWay}">
+
+                <ContentPresenter
+                    Content="{Binding SettingsContent, ElementName=Root}"
+                    HorizontalAlignment="Stretch"/>
+
+            </Expander>
+
+        </StackPanel>
+
+    </Border>
+
+</UserControl>

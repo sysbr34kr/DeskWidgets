@@ -1,0 +1,49 @@
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Application -->
+    <sys:String x:Key="UI_WidgetManager">Widget Manager</sys:String>
+    <sys:String x:Key="UI_Widgets">Widgets</sys:String>
+    <sys:String x:Key="UI_Preview">Preview</sys:String>
+    <sys:String x:Key="UI_StartWithWindows">Start with Windows</sys:String>
+    <sys:String x:Key="UI_Language">Language</sys:String>
+
+    <!-- Digital Clock -->
+    <sys:String x:Key="Clock_Name">Digital Clock</sys:String>
+    <sys:String x:Key="Clock_Description">Display time and date on your desktop.</sys:String>
+    <sys:String x:Key="Clock_Configuration">Configuration</sys:String>
+    <sys:String x:Key="Clock_Display">Display</sys:String>
+    <sys:String x:Key="Clock_FontSize">Font Size</sys:String>
+    <sys:String x:Key="Clock_ShowSeconds">Show Seconds</sys:String>
+    <sys:String x:Key="Clock_Use24Hour">24-Hour Format</sys:String>
+    <sys:String x:Key="Clock_ShowDate">Show Date</sys:String>
+    <sys:String x:Key="Clock_DateFormat">Date Format</sys:String>
+
+    <!-- Date Format Options -->
+    <sys:String x:Key="Clock_DateFull">Full</sys:String>
+    <sys:String x:Key="Clock_DateShort">Short</sys:String>
+    <sys:String x:Key="Clock_DateWeekday">Weekday Only</sys:String>
+    <sys:String x:Key="Clock_DateNumeric">Numeric</sys:String>
+
+    <!-- Shared Widget Behaviors -->
+    <sys:String x:Key="Widget_Behavior">Widget Behavior</sys:String>
+    <sys:String x:Key="Widget_Configuration">Configuration</sys:String>
+    <sys:String x:Key="Widget_LockPosition">Lock Position</sys:String>
+    <sys:String x:Key="Widget_TransparentBackground">Transparent Background</sys:String>
+    <sys:String x:Key="Widget_AlwaysOnTop">Always on Top</sys:String>
+    <sys:String x:Key="Widget_ResetPosition">Reset Position</sys:String>
+
+    <!-- Context Menus -->
+    <sys:String x:Key="Menu_Settings">Settings</sys:String>
+    <sys:String x:Key="Menu_Close">Close</sys:String>
+    <sys:String x:Key="Menu_OpenManager">Open Widget Manager</sys:String>
+    <sys:String x:Key="Menu_Exit">Exit DeskWidgets</sys:String>
+
+    <!-- Error Messages -->
+    <sys:String x:Key="Error_SaveSettings">Unable to save application settings.&#10;&#10;{0}</sys:String>
+    <sys:String x:Key="Error_StartupSettings">Unable to update Windows startup settings.&#10;&#10;{0}</sys:String>
+
+</ResourceDictionary>

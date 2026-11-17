@@ -1,0 +1,80 @@
+<UserControl
+    x:Class="DeskWidgets.Controls.WidgetBehaviorSettings"
+    x:Name="Root"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:DeskWidgets.Controls">
+
+    <StackPanel>
+
+        <!-- Section Heading -->
+        <TextBlock
+            Text="{DynamicResource Widget_Behavior}"
+            Style="{StaticResource SectionTitleStyle}"
+            Margin="0,0,0,14"/>
+
+        <!-- Shared Toggle Settings -->
+        <controls:SettingToggle
+            Label="{DynamicResource Widget_LockPosition}"
+            IsChecked="{Binding IsPositionLocked,
+                ElementName=Root,
+                Mode=TwoWay}"
+            Margin="0,0,0,10"/>
+
+        <controls:SettingToggle
+            Label="{DynamicResource Widget_TransparentBackground}"
+            IsChecked="{Binding IsBackgroundTransparent,
+                ElementName=Root,
+                Mode=TwoWay}"
+            Margin="0,0,0,10"/>
+
+        <controls:SettingToggle
+            Label="{DynamicResource Widget_AlwaysOnTop}"
+            IsChecked="{Binding IsAlwaysOnTop,
+                ElementName=Root,
+                Mode=TwoWay}"
+            Margin="0,0,0,16"/>
+
+        <!-- Reset Position -->
+        <Grid MinHeight="26">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Setting Label -->
+            <TextBlock
+                Grid.Column="0"
+                Text="{DynamicResource Widget_ResetPosition}"
+                Style="{StaticResource SettingLabelStyle}"
+                FontWeight="Normal"
+                VerticalAlignment="Center"/>
+
+            <!-- Circular Reset Button -->
+            <Button
+                Grid.Column="1"
+                Width="26"
+                Height="26"
+                MinHeight="26"
+                Padding="0"
+                Cursor="Hand"
+                Style="{StaticResource RoundIconButtonStyle}"
+                Click="ResetPositionButton_Click"
+                ToolTip="{DynamicResource Widget_ResetPosition}"
+                AutomationProperties.Name="Resets widget position">
+
+                <TextBlock
+                    Text="&#xE72C;"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="14"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+
+            </Button>
+
+        </Grid>
+
+    </StackPanel>
+
+</UserControl>

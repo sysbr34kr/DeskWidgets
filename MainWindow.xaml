@@ -1,0 +1,408 @@
+﻿<Window
+    x:Class="DeskWidgets.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:DeskWidgets.Controls"
+    xmlns:widgets="clr-namespace:DeskWidgets.Widgets.DigitalClock"
+
+    Title="DeskWidgets"
+    Icon="Assets/DeskWidgets.ico"
+
+    Width="600"
+    Height="680"
+    MinWidth="600"
+    MinHeight="450"
+
+    WindowStartupLocation="CenterScreen"
+    FontFamily="Segoe UI"
+    FontSize="14"
+
+    Background="{DynamicResource MainBackgroundBrush}"
+    Foreground="{DynamicResource PrimaryTextBrush}">
+
+    <Grid
+        Margin="24"
+        LayoutTransform="{DynamicResource InterfaceScaleTransform}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HEADER -->
+        <Border
+            Grid.Row="0"
+            Padding="16,16"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="0,0,0,1">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="14"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Application Logo -->
+                <Border
+                    Grid.Column="0"
+                    Width="90"
+                    Height="90"
+                    Background="{DynamicResource ElevatedSurfaceBrush}"
+                    CornerRadius="16"
+                    VerticalAlignment="Center">
+
+                    <TextBlock
+                        Text="&#xECA5;"
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="45"
+                        Foreground="{DynamicResource AccentBrush}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+
+                </Border>
+
+                <!-- Title and Settings -->
+                <Grid Grid.Column="2">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48"/>
+                        <RowDefinition Height="4"/>
+                        <RowDefinition Height="48"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- TOP ROW: Title + Scale -->
+                    <Grid Grid.Row="0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Title -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Text="DeskWidgets"
+                            FontSize="36"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            TextWrapping="NoWrap">
+
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="-2.5"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <!-- Scale Selector -->
+                        <StackPanel
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+
+                            <TextBlock
+                                Text="&#xE740;"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="16"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Width="16"
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                ToolTip="Interface scale"/>
+
+                            <ComboBox
+                                x:Name="InterfaceScaleComboBox"
+                                Width="114"
+                                Style="{StaticResource ComboBoxStyle}"
+                                SelectedValuePath="Tag"
+                                SelectionChanged="InterfaceScaleComboBox_SelectionChanged"
+                                AutomationProperties.Name="Interface scale">
+
+                                <ComboBoxItem Content="100%" Tag="100" IsSelected="True"/>
+                                <ComboBoxItem Content="125%" Tag="125"/>
+                                <ComboBoxItem Content="150%" Tag="150"/>
+                                <ComboBoxItem Content="175%" Tag="175"/>
+                                <ComboBoxItem Content="200%" Tag="200"/>
+
+                            </ComboBox>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Subtitle -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Text="{DynamicResource UI_WidgetManager}"
+                            FontSize="16"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            TextWrapping="NoWrap">
+
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="-2"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <!-- Theme Selector -->
+                        <StackPanel
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+
+                            <TextBlock
+                                Text="&#xE790;"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="16"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Width="16"
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                ToolTip="Theme"/>
+
+                            <ComboBox
+                                x:Name="ThemeComboBox"
+                                Width="214"
+                                Style="{StaticResource ComboBoxStyle}"
+                                SelectedValuePath="Tag"
+                                SelectionChanged="ThemeComboBox_SelectionChanged"
+                                AutomationProperties.Name="Application theme">
+
+                                <ComboBoxItem Content="Dark" Tag="dark" IsSelected="True"/>
+                                <ComboBoxItem Content="Light" Tag="light"/>
+
+                            </ComboBox>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Border>
+        
+        <!-- APPLICATION SETTINGS -->
+        <Border
+            Grid.Row="1"
+            Padding="20,8"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="0,0,0,1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Start with Windows -->
+                <StackPanel
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+                    <TextBlock
+                        Text="&#xE7F4;"
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="16"
+                        Width="30"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        VerticalAlignment="Center"/>
+
+                    <TextBlock
+                        Text="{DynamicResource UI_StartWithWindows}"
+                        Foreground="{DynamicResource PrimaryTextBrush}"
+                        VerticalAlignment="Center"/>
+
+                </StackPanel>
+
+                <controls:SettingToggle
+                    x:Name="StartWithWindowsToggle"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="60"
+                    Label=""
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"/>
+
+                <!-- Language -->
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    Margin="0,8,0,0">
+
+                    <TextBlock
+                        Text="&#xE774;"
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="16"
+                        Width="30"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        VerticalAlignment="Center"/>
+
+                    <TextBlock
+                        Text="{DynamicResource UI_Language}"
+                        Foreground="{DynamicResource PrimaryTextBrush}"
+                        VerticalAlignment="Center"/>
+
+                </StackPanel>
+
+                <ComboBox
+                    x:Name="LanguageComboBox"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="185"
+                    Margin="0,8,0,0"
+                    Style="{StaticResource ComboBoxStyle}"
+                    SelectedValuePath="Tag"
+                    SelectionChanged="LanguageComboBox_SelectionChanged"
+                    AutomationProperties.Name="Application language">
+
+                    <ComboBoxItem Content="English" Tag="en-US"/>
+                    <ComboBoxItem Content="Português (Brasil)" Tag="pt-BR"/>
+
+                </ComboBox>
+
+            </Grid>
+
+        </Border>
+
+        <!-- SCROLLABLE WIDGET AREA -->
+        <Grid Grid.Row="2" Margin="20,16,12,16">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Section Heading -->
+            <Grid Margin="0,0,8,14">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Text="Widgets"
+                    Style="{StaticResource SectionTitleStyle}"/>
+
+                <TextBlock
+                    Grid.Column="1"
+                    Text="{DynamicResource UI_Preview}"
+                    Style="{StaticResource DescriptionStyle}"
+                    VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <!-- Only widget cards scroll -->
+            <ScrollViewer
+                Grid.Row="1"
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Disabled">
+
+                <StackPanel Margin="0,0,8,0">
+
+                    <!-- Digital Clock -->
+                    <widgets:DigitalClockCard
+                        x:Name="DigitalClockModule"/>
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+        </Grid>
+
+        <!-- FOOTER -->
+        <Border
+            Grid.Row="3"
+            Padding="20,12"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="0,1,0,0">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Developer Branding -->
+                <StackPanel
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+                    <!-- Theme-aware Logo -->
+                    <Rectangle
+                        Width="26"
+                        Height="26"
+                        Fill="{DynamicResource SecondaryTextBrush}"
+                        Margin="0,0,10,0"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        SnapsToDevicePixels="True">
+
+                        <Rectangle.OpacityMask>
+                            <ImageBrush
+                                ImageSource="/Assets/SysLogo.png"
+                                Stretch="Uniform"/>
+                        </Rectangle.OpacityMask>
+
+                    </Rectangle>
+
+                    <!-- GitHub Link -->
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="13">
+
+                        <Hyperlink
+                            NavigateUri="https://github.com/sysbr34kr"
+                            RequestNavigate="GitHubLink_RequestNavigate"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            TextDecorations="{x:Null}"
+                            Cursor="Hand">
+
+                            © github.com/sysbr34kr
+
+                        </Hyperlink>
+
+                    </TextBlock>
+
+                </StackPanel>
+
+                <!-- Application Version -->
+                <TextBlock
+                    Grid.Column="1"
+                    Text="v0.1.0-alpha"
+                    FontSize="12"
+                    Foreground="{DynamicResource SecondaryTextBrush}"
+                    VerticalAlignment="Center"/>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>
